@@ -1,58 +1,137 @@
-<template>
-  <div class="hello">
-    <h1>{{ msg }}</h1>
-    <p>
-      For a guide and recipes on how to configure / customize this project,<br>
-      check out the
-      <a href="https://cli.vuejs.org" target="_blank" rel="noopener">vue-cli documentation</a>.
-    </p>
-    <h3>Installed CLI Plugins</h3>
-    <ul>
-      <li><a href="https://github.com/vuejs/vue-cli/tree/dev/packages/%40vue/cli-plugin-babel" target="_blank" rel="noopener">babel</a></li>
-      <li><a href="https://github.com/vuejs/vue-cli/tree/dev/packages/%40vue/cli-plugin-eslint" target="_blank" rel="noopener">eslint</a></li>
-    </ul>
-    <h3>Essential Links</h3>
-    <ul>
-      <li><a href="https://vuejs.org" target="_blank" rel="noopener">Core Docs</a></li>
-      <li><a href="https://forum.vuejs.org" target="_blank" rel="noopener">Forum</a></li>
-      <li><a href="https://chat.vuejs.org" target="_blank" rel="noopener">Community Chat</a></li>
-      <li><a href="https://twitter.com/vuejs" target="_blank" rel="noopener">Twitter</a></li>
-      <li><a href="https://news.vuejs.org" target="_blank" rel="noopener">News</a></li>
-    </ul>
-    <h3>Ecosystem</h3>
-    <ul>
-      <li><a href="https://router.vuejs.org" target="_blank" rel="noopener">vue-router</a></li>
-      <li><a href="https://vuex.vuejs.org" target="_blank" rel="noopener">vuex</a></li>
-      <li><a href="https://github.com/vuejs/vue-devtools#vue-devtools" target="_blank" rel="noopener">vue-devtools</a></li>
-      <li><a href="https://vue-loader.vuejs.org" target="_blank" rel="noopener">vue-loader</a></li>
-      <li><a href="https://github.com/vuejs/awesome-vue" target="_blank" rel="noopener">awesome-vue</a></li>
-    </ul>
-  </div>
+<template lang="pug">
+.HelloWorld
+  .scrollBox(ref="scrollBox" @mousemove="mousemove")
+    .content(ref="content")
+      .box
+        el-popover(
+          placement="top-start"
+          title="标题"
+          :width="200"
+          trigger="hover"
+          content="这是一段内容,这是一段内容,这是一段内容,这是一段内容。"
+        )
+          template(#reference)
+            .text(@click="dialogVisible = true") sdfsdfsdf
+      .box
+        el-popover(
+          placement="top-start"
+          title="标题"
+          :width="200"
+          trigger="hover"
+          content="这是一段内容,这是一段内容,这是一段内容,这是一段内容。"
+        )
+          template(#reference)
+            .text(@click="dialogVisible = true") sdfsdfsdf
+      .box
+        el-popover(
+          placement="top-start"
+          title="标题"
+          :width="200"
+          trigger="hover"
+          content="这是一段内容,这是一段内容,这是一段内容,这是一段内容。"
+        )
+          template(#reference)
+            .text(@click="dialogVisible = true") sdfsdfsdf
+      .box
+        el-popover(
+          placement="top-start"
+          title="标题"
+          :width="200"
+          trigger="hover"
+          content="这是一段内容,这是一段内容,这是一段内容,这是一段内容。"
+        )
+          template(#reference)
+            .text(@click="dialogVisible = true") sdfsdfsdf
+      .box
+        el-popover(
+          placement="top-start"
+          title="标题"
+          :width="200"
+          trigger="hover"
+          content="这是一段内容,这是一段内容,这是一段内容,这是一段内容。"
+        )
+          template(#reference)
+            .text(@click="dialogVisible = true") sdfsdfsdf
+  el-dialog(
+    title="提示"
+    v-model="dialogVisible"
+    width="30%"
+    :before-close="handleClose"
+  )
+    span 这是一段信息
+    template(#footer)
+      span.dialog-footer
+        el-button(@click="dialogVisible = false") 取 消
+        el-button(type="primary" @click="dialogVisible = false") 确 定
 </template>
 
 <script>
+import { ref } from 'vue'
+import { ElMessageBox } from 'element-plus'
 export default {
   name: 'HelloWorld',
   props: {
-    msg: String
-  }
+    msg: String,
+  },
+  setup() {
+    const dialogVisible = ref(false)
+    const scrollBox = ref(null)
+    const content = ref(null)
+    const mousemove = (evt) => {
+      const x = evt.clientX
+      const boxLeft = scrollBox.value.getBoundingClientRect().left
+      const boxWidth = scrollBox.value.offsetWidth
+      const point = x - boxLeft
+      const contentWidth = content.value.offsetWidth
+
+      const radio = point / boxWidth
+      const overflow = contentWidth - boxWidth
+      scrollBox.value.scrollTo(overflow * radio, scrollBox.value.scrollTop)
+    }
+
+    const handleClose = (done) => {
+      ElMessageBox.confirm('确认关闭？')
+        .then(() => {
+          done()
+        })
+        .catch(() => {
+          // catch
+        })
+    }
+
+    return {
+      mousemove,
+      content,
+      scrollBox,
+      dialogVisible,
+      handleClose,
+    }
+  },
 }
 </script>
-
-<!-- Add "scoped" attribute to limit CSS to this component only -->
-<style scoped>
-h3 {
-  margin: 40px 0 0;
-}
-ul {
-  list-style-type: none;
-  padding: 0;
-}
-li {
-  display: inline-block;
-  margin: 0 10px;
-}
-a {
-  color: #42b983;
-}
+<style lang="sass" scoped>
+.HelloWorld
+  display: flex
+  align-items: center
+  justify-content: center
+  height: 100vh
+  .scrollBox
+    width: 95%
+    height: 80%
+    border: 1px solid #ccc
+    overflow: hidden
+    .content
+      height: 100%
+      width: 200%
+      display: flex
+      .box
+        width: 20%
+        height: 100%
+        border: 1px solid #ccc
+        +flex-center
+        .text
+          +size(100px,100px)
+          +flex-center
+          border: 1px solid #ccc
+          cursor: pointer
 </style>
