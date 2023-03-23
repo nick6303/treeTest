@@ -8,6 +8,9 @@ import 'element-plus/dist/index.css'
 import locale from 'element-plus/lib/locale/lang/zh-tw'
 
 import 'app-plugin/assets/fonts/icomoon/style.css'
+
+import '@css/style.sass'
+
 const app = createApp(App)
 
 app.use(ElementPlus, { locale }).mount('#app')

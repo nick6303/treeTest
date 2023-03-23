@@ -1,4 +1,3 @@
-const { defineConfig } = require('@vue/cli-service')
 const isProduction = process.env.NODE_ENV === 'production'
 const time = new Date()
 const timeStamp = time.getTime()
@@ -7,8 +6,7 @@ const titleVersion =
     ? ''
     : ` (${time.getMonth()}/${time.getDate()} ${time.getHours()}:${time.getMinutes()})`
 
-module.exports = defineConfig({
-  transpileDependencies: true,
+module.exports = {
   publicPath: process.env.VUE_APP_BASE_URL,
   devServer: {
     port: 8080,
@@ -81,4 +79,4 @@ module.exports = defineConfig({
     },
   },
   productionSourceMap: false,
-})
+}
