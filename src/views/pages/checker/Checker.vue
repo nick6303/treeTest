@@ -51,34 +51,29 @@ export default {
 <style lang="sass" scoped>
 $blue: rgb(91,155,213)
 .box
-  padding-top: 150px !important
+  padding-top: 90px !important
   position: relative
   &:before,&:after
-    +fakeLine(2px,130px,$blue)
     position: absolute
-    top: calc(50% - 10px)
+    +fakeLine(2px,130px,$blue)
+    top: calc(50% - 40px)
+    z-index: -1
   &:before
     left: 0
   &:after
     right: 0
 figure.email
-  position: relative
   &:before
     +fakeLine(calc(100% + 100px),2px,$blue)
-    position: absolute
     top: calc(50% + 15px)
     left: 50%
     transform: translate(-50%,-50%)
-    z-index: -1
 figure.trendDDI
-  position: relative
   &:before
     +fakeLine(calc(100% + 100px),2px,$blue)
-    position: absolute
     top: calc(50% - 40px)
     left: 50%
     transform: translate(-50%,-50%)
-    z-index: -1
 figure
   flex-direction: column
 ul

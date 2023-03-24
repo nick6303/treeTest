@@ -93,6 +93,10 @@ export default {
           +flex-center
           cursor: pointer
           margin: 20px 0
+          position: relative
+          &:before,&:after
+            position: absolute
+            z-index: -1
           figcaption
             max-width: 160px
             text-align: center

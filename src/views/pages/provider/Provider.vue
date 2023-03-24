@@ -120,18 +120,17 @@ $blue: rgb(91,155,213)
     +fakeLine(2px,calc(100% - 155px),$blue)
     position: absolute
     top: calc(50% + 5px)
-    right: -21px
+    right: -1px
     transform: translate(-50%,-50%)
     z-index: -1
 figure
-  position: relative
-  width: 160px
+  justify-content: flex-start
+  width: 100%
   figcaption
     padding-bottom: 20px
   &:before
     +fakeLine(calc(100% - 10px),2px,$blue)
-    position: absolute
     top: 50%
-    left: 80px
+    left: 60px
     z-index: -1
 </style>

@@ -63,12 +63,14 @@ $blue: rgb(91,155,213)
 figure
   flex-direction: column
 figure.oa
-  position: relative
   &:before
     +fakeLine(calc(100% + 100px),2px ,$blue)
-    position: absolute
     top: calc(50% + 10px)
     left: 50%
     transform: translateX(-50%)
-figure.wall
+figure.network,figure.wall
+  &::before
+    +fakeLine(2px,calc(50% + 50px),$blue)
+    bottom: 50%
+    left: calc(50% - 1px)
 </style>

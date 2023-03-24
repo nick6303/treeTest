@@ -59,46 +59,38 @@ export default {
 </script>
 <style lang="sass" scoped>
 $blue: rgb(91,155,213)
+.box
+  padding-bottom: 100px !important
 figure
   flex-direction: column
 figure.pepLink
-  position: relative
-  margin-right: 50px !important
+  width: 50%
   &:before
-    +fakeLine(40px,2px,$blue)
-    position: absolute
-    top: calc(50% - 40px)
-    right: calc(50% + 45px)
+    +fakeLine(calc(50% + 50px),2px,$blue)
+    top: calc(50% - 25px)
+    left: -50px
   &:after
     +fakeLine(100px,2px,$blue)
-    position: absolute
-    top: calc(50% - 40px)
+    top: calc(50% - 25px)
     left: calc(50% + 44px)
 figure.WCG
-  position: relative
   &:before
-    left: 20px
+    left: 14px
     +fakeLine(2px,130px,$blue)
-    position: absolute
     top: 70%
-    z-index: -1
   &:after
-    +fakeLine(calc(100% - 40px),2px,$blue)
-    position: absolute
+    +fakeLine(calc(100% - 30px),2px,$blue)
     top: 70%
-    right: 20px
-    z-index: -1
-figure.helmet
-  position: relative
-  &:before
-    +fakeLine(2px,130px,$blue)
-    position: absolute
     left: 50%
-    bottom: calc(50% + 67px)
-    z-index: -1
+    transform: translateX(-50%)
+figure.helmet
+  width: 50%
+  &:before
+    +fakeLine(2px,120px,$blue)
+    left: calc(50% - 1px)
+    bottom: calc(50% + 69px)
   &:after
-    +fakeLine(140px,2px,$blue)
-    position: absolute
-    top: calc(50% - 40px)
+    +fakeLine(180px,2px,$blue)
+    top: calc(50% - 25px)
     left: calc(50% + 44px)
 </style>

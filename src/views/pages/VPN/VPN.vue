@@ -60,40 +60,31 @@ export default {
 <style lang="sass" scoped>
 $blue: rgb(91,155,213)
 .box
-  padding-top: 320px !important
+  padding-top: 280px !important
 figure
   flex-direction: column
-figure.IPS
-  position: relative
+
+figure.IPS,figure.wall
+  width: 50%
   &:before
-    +fakeLine(2px,153px,$blue)
-    position: absolute
-    top: calc(100% - 20px)
-    left: 50%
+    +fakeLine(2px,170px,$blue)
+    top: calc(100% - 35px)
+    left: calc(50% - 1px)
+figure.IPS
   &:after
-    +fakeLine(32px,2px,$blue)
-    position: absolute
-    bottom: 40px
+    +fakeLine(50%,2px,$blue)
+    bottom: 45px
     left: calc(50% + 43px)
 figure.wall
-  position: relative
-  &:before
-    +fakeLine(2px,150px,$blue)
-    position: absolute
-    top: calc(100% - 15px)
-    left: 50%
   &:after
-    +fakeLine(72px,2px,$blue)
-    position: absolute
-    bottom: 40px
-    left: calc(50% + 45px)
+    +fakeLine(calc(50% + 50px),2px,$blue)
+    bottom: 45px
+    left: 50%
 figure.vpn
-  position: relative
+  width: 100%
   &::before
-    +fakeLine(calc(100% - 80px),2px,$blue)
-    position: absolute
+    +fakeLine(50%,2px,$blue)
     top: calc(50% - 50px)
-    left: calc(50% - 4px)
-    transform: translate(-50%,-50%)
-    z-index: -1
+    left: 50%
+    transform: translateX(-50%)
 </style>

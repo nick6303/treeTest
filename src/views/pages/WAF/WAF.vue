@@ -36,12 +36,9 @@ export default {
 $blue: rgb(91,155,213)
 .WAF
   figure
-    padding-top: 75px !important
     flex-direction: column
-    position: relative
     &:after
-      position: absolute
-      +fakeLine(120px,2px,$blue)
-      top: calc(50% + 64px)
-      left: calc(50% + 45px)
+      +fakeLine(calc(50% + 115px),2px,$blue)
+      top: calc(50% + 25px)
+      left: 50%
 </style>
