@@ -37,8 +37,4 @@ $blue: rgb(91,155,213)
 .WAF
   figure
     flex-direction: column
-    &:after
-      +fakeLine(calc(50% + 115px),2px,$blue)
-      top: calc(50% + 25px)
-      left: 50%
 </style>

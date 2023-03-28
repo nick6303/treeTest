@@ -86,6 +86,6 @@ export default {
 $blue: rgb(91,155,213)
 .box
   position: relative
-  border: 2px solid $blue
+  // border: 2px solid $blue
   border-radius: 15px
 </style>

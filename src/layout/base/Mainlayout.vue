@@ -2,6 +2,7 @@
 .HelloWorld
   .scrollBox(ref="scrollBox" @mousemove="mousemove")
     .content(ref="content" :style="{left: `-${left}px`}")
+      canvas
       Provider
       WCG
       WAF
@@ -12,7 +13,7 @@
 </template>
 
 <script>
-import { ref } from 'vue'
+import { onMounted, ref } from 'vue'
 import Provider from '@v/pages/provider'
 import WCG from '@v/pages/WCG'
 import WAF from '@v/pages/WAF'
@@ -52,6 +53,23 @@ export default {
       left.value = overflow * radio
     }
 
+    const getAllFigure = () => {
+      const figures = document.querySelectorAll('figure')
+      const temps = []
+      figures.forEach((item) => {
+        const width = item.offsetWidth
+        const height = item.offsetHeight
+        const left = item.offsetLeft + item.parentNode.offsetLeft
+        const top = item.offsetTop + item.parentNode.offsetTop
+        temps.push({ width, height, left, top })
+      })
+      console.log(temps)
+    }
+
+    onMounted(() => {
+      getAllFigure()
+    })
+
     return {
       mousemove,
       content,
@@ -83,6 +101,11 @@ export default {
       display: flex
       padding: 0 50px
       transition: 0s ease 0s
+      canvas
+        position: absolute
+        top: 0
+        left: 0
+        +size(100%,100%)
       .box
         height: 100%
         +flex-center
@@ -94,9 +117,7 @@ export default {
           cursor: pointer
           margin: 20px 0
           position: relative
-          &:before,&:after
-            position: absolute
-            z-index: -1
+
           figcaption
             max-width: 160px
             text-align: center

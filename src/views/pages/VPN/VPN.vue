@@ -66,25 +66,6 @@ figure
 
 figure.IPS,figure.wall
   width: 50%
-  &:before
-    +fakeLine(2px,170px,$blue)
-    top: calc(100% - 35px)
-    left: calc(50% - 1px)
-figure.IPS
-  &:after
-    +fakeLine(50%,2px,$blue)
-    bottom: 45px
-    left: calc(50% + 43px)
-figure.wall
-  &:after
-    +fakeLine(calc(50% + 50px),2px,$blue)
-    bottom: 45px
-    left: 50%
 figure.vpn
   width: 100%
-  &::before
-    +fakeLine(50%,2px,$blue)
-    top: calc(50% - 50px)
-    left: 50%
-    transform: translateX(-50%)
 </style>

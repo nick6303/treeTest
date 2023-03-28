@@ -65,32 +65,6 @@ figure
   flex-direction: column
 figure.pepLink
   width: 50%
-  &:before
-    +fakeLine(calc(50% + 50px),2px,$blue)
-    top: calc(50% - 25px)
-    left: -50px
-  &:after
-    +fakeLine(100px,2px,$blue)
-    top: calc(50% - 25px)
-    left: calc(50% + 44px)
-figure.WCG
-  &:before
-    left: 14px
-    +fakeLine(2px,130px,$blue)
-    top: 70%
-  &:after
-    +fakeLine(calc(100% - 30px),2px,$blue)
-    top: 70%
-    left: 50%
-    transform: translateX(-50%)
 figure.helmet
   width: 50%
-  &:before
-    +fakeLine(2px,120px,$blue)
-    left: calc(50% - 1px)
-    bottom: calc(50% + 69px)
-  &:after
-    +fakeLine(180px,2px,$blue)
-    top: calc(50% - 25px)
-    left: calc(50% + 44px)
 </style>

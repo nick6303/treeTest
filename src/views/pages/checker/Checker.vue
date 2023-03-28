@@ -53,27 +53,6 @@ $blue: rgb(91,155,213)
 .box
   padding-top: 90px !important
   position: relative
-  &:before,&:after
-    position: absolute
-    +fakeLine(2px,130px,$blue)
-    top: calc(50% - 40px)
-    z-index: -1
-  &:before
-    left: 0
-  &:after
-    right: 0
-figure.email
-  &:before
-    +fakeLine(calc(100% + 100px),2px,$blue)
-    top: calc(50% + 15px)
-    left: 50%
-    transform: translate(-50%,-50%)
-figure.trendDDI
-  &:before
-    +fakeLine(calc(100% + 100px),2px,$blue)
-    top: calc(50% - 40px)
-    left: 50%
-    transform: translate(-50%,-50%)
 figure
   flex-direction: column
 ul
