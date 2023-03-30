@@ -2,7 +2,7 @@
 .HelloWorld
   .scrollBox(ref="scrollBox" @mousemove="mousemove")
     .content(ref="content" :style="{left: `-${left}px`}")
-      canvas
+      canvas(ref="canvas")
       Provider
       WCG
       WAF
@@ -39,6 +39,9 @@ export default {
   setup() {
     const scrollBox = ref(null)
     const content = ref(null)
+    const canvas = ref(null)
+    const canvasWidth = ref(0)
+    const canvasHeight = ref(0)
     const left = ref(0)
     const mousemove = (evt) => {
       const x = evt.clientX
@@ -59,11 +62,36 @@ export default {
       figures.forEach((item) => {
         const width = item.offsetWidth
         const height = item.offsetHeight
-        const left = item.offsetLeft + item.parentNode.offsetLeft
-        const top = item.offsetTop + item.parentNode.offsetTop
-        temps.push({ width, height, left, top })
+        let left, top
+        if (item.parentNode.classList.contains('box')) {
+          left = item.offsetLeft + item.parentNode.offsetLeft
+          top = item.offsetTop + item.parentNode.offsetTop
+        } else {
+          left =
+            item.offsetLeft +
+            item.parentNode.offsetLeft +
+            item.parentNode.parentNode.offsetLeft
+          top =
+            item.offsetTop +
+            item.parentNode.offsetTop +
+            item.parentNode.parentNode.offsetTop
+        }
+        console.log(item, left + width / 2, top + height / 2)
+        temps.push({ x: left + width / 2, y: top + height / 2 })
       })
-      console.log(temps)
+      createCanvas(temps)
+    }
+
+    const createCanvas = (temps) => {
+      canvas.value.width = content.value.offsetWidth
+      canvas.value.height = content.value.offsetHeight
+      var ctx = canvas.value.getContext('2d')
+      temps.forEach((item) => {
+        ctx.beginPath()
+        ctx.arc(item.x, item.y, 2, 0, 2 * Math.PI)
+        ctx.fillStyle = '#FF0000'
+        ctx.fill()
+      })
     }
 
     onMounted(() => {
@@ -75,6 +103,9 @@ export default {
       content,
       scrollBox,
       left,
+      canvas,
+      canvasWidth,
+      canvasHeight,
     }
   },
 }
@@ -105,23 +136,25 @@ export default {
         position: absolute
         top: 0
         left: 0
-        +size(100%,100%)
+        z-index: 2
+        pointer-events: none
       .box
         height: 100%
         +flex-center
         flex-direction: column
         padding: 0 50px
+        position: relative
+        .row
+          position: relative
         figure
-          padding: 10px
+          padding: 30px 10px
           +flex-center
           cursor: pointer
-          margin: 20px 0
           position: relative
-
           figcaption
             max-width: 160px
             text-align: center
-            margin: 10px
+            padding: 10px
           img
             transition: all .4s ease
             min-width: 90px

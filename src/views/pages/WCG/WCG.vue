@@ -60,7 +60,7 @@ export default {
 <style lang="sass" scoped>
 $blue: rgb(91,155,213)
 .box
-  padding-bottom: 100px !important
+  // padding-bottom: 100px !important
 figure
   flex-direction: column
 figure.pepLink
