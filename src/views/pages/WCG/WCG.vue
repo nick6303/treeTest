@@ -8,7 +8,7 @@
     content="这是一段内容,这是一段内容,这是一段内容,这是一段内容。"
   )
     template(#reference)
-      figure.WCG(@click="dialogVisible = true")
+      figure.WCG(@click="dialogVisible = true"  data-target="waf1" data-name="wcg1")
         figcaption 上網行為管理系統 Forcepoint WCG
         img(src="~@img/WCG.png")
   .row
@@ -20,7 +20,7 @@
       content="这是一段内容,这是一段内容,这是一段内容,这是一段内容。"
     )
       template(#reference)
-        figure.pepLink.off(@click="dialogVisible = true")
+        figure.pepLink.off(@click="dialogVisible = true"  data-target="waf1" data-name="wcg2")
           img(src="~@img/pepLink.png")
           figcaption 廣域網路負載平衡器 PepLink
     el-popover(
@@ -31,7 +31,7 @@
       content="这是一段内容,这是一段内容,这是一段内容,这是一段内容。"
     )
       template(#reference)
-        figure.helmet(@click="dialogVisible = true")
+        figure.helmet(@click="dialogVisible = true"  data-target="waf1" data-name="wcg3")
           img(src="~@img/helmet.png")
           figcaption 全球資安情資分析防禦系統 Ixia TheartArmor
   el-dialog(

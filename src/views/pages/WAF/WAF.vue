@@ -8,7 +8,7 @@
     content="这是一段内容,这是一段内容,这是一段内容,这是一段内容。"
   )
     template(#reference)
-      figure.off(@click="dialogVisible = true")
+      figure.off(@click="dialogVisible = true" data-target="vpn3" data-name="waf1")
         figcaption 網站應用程式防火牆 WAF
         img(src="~@img/WAF.png")
   el-dialog(

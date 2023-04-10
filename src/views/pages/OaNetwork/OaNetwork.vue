@@ -8,7 +8,7 @@
     content="这是一段内容,这是一段内容,这是一段内容,这是一段内容。"
   )
     template(#reference)
-      figure.oa(@click="dialogVisible = true")
+      figure.oa(@click="dialogVisible = true" data-target="ProtectionItem3" data-name="OaNetwork1")
         figcaption OA網路
         img(src="~@img/network.png")
   el-popover(
@@ -19,7 +19,7 @@
     content="这是一段内容,这是一段内容,这是一段内容,这是一段内容。"
   )
     template(#reference)
-      figure.wall.off(@click="dialogVisible = true")
+      figure.wall.off(@click="dialogVisible = true" data-target="ProtectionItem3" data-name="OaNetwork2")
         img(src="~@img/wall.png")
         figcaption 防火牆
   el-popover(
@@ -30,7 +30,7 @@
     content="这是一段内容,这是一段内容,这是一段内容,这是一段内容。"
   )
     template(#reference)
-      figure.network(@click="dialogVisible = true")
+      figure.network(@click="dialogVisible = true"  data-target="ProtectionItem3" data-name="OaNetwork3")
         img(src="~@img/network.png")
         figcaption 程控網路
   el-dialog(

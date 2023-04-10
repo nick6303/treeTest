@@ -8,7 +8,7 @@
     content="这是一段内容,这是一段内容,这是一段内容,这是一段内容。"
   )
     template(#reference)
-      figure(@click="dialogVisible = true")
+      figure(@click="dialogVisible = true" data-target="" data-name="ProtectionItem1")
         img(src="~@img/trendMicro.png")
         figcaption 防毒軟體 TrendMicro Apexone
   el-popover(
@@ -19,7 +19,7 @@
     content="这是一段内容,这是一段内容,这是一段内容,这是一段内容。"
   )
     template(#reference)
-      figure(@click="dialogVisible = true")
+      figure(@click="dialogVisible = true" data-target="" data-name="ProtectionItem2")
         img(src="~@img/usb.png")
         figcaption USB 管控軟體資產管理軟體 WinMatrix
 
@@ -31,7 +31,7 @@
     content="这是一段内容,这是一段内容,这是一段内容,这是一段内容。"
   )
     template(#reference)
-      figure(@click="dialogVisible = true")
+      figure(@click="dialogVisible = true" data-target="" data-name="ProtectionItem3")
         img(src="~@img/crowdstrike.png")
         figcaption 端點進階持續性攻擊防護軟體 Crowdstrike Falcon
 
@@ -44,7 +44,7 @@
     content="这是一段内容,这是一段内容,这是一段内容,这是一段内容。"
   )
     template(#reference)
-      figure(@click="dialogVisible = true")
+      figure(@click="dialogVisible = true" data-target="" data-name="ProtectionItem4")
         img(src="~@img/IP.png")
         figcaption IP/MAC管理系統 Dr.IP
 
@@ -56,7 +56,7 @@
     content="这是一段内容,这是一段内容,这是一段内容,这是一段内容。"
   )
     template(#reference)
-      figure(@click="dialogVisible = true")
+      figure(@click="dialogVisible = true"  data-target="" data-name="ProtectionItem5")
         img(src="~@img/cyberark.png")
         figcaption 特權帳號管理系統 CyberArk
   el-dialog(
