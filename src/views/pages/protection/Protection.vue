@@ -8,7 +8,7 @@
     content="这是一段内容,这是一段内容,这是一段内容,这是一段内容。"
   )
     template(#reference)
-      figure(@click="dialogVisible = true" data-target="" data-name="ProtectionItem1")
+      figure(@click="dialogVisible = true" data-target="ProtectionItem2" data-name="ProtectionItem1")
         img(src="~@img/trendMicro.png")
         figcaption 防毒軟體 TrendMicro Apexone
   el-popover(
@@ -19,7 +19,7 @@
     content="这是一段内容,这是一段内容,这是一段内容,这是一段内容。"
   )
     template(#reference)
-      figure(@click="dialogVisible = true" data-target="" data-name="ProtectionItem2")
+      figure(@click="dialogVisible = true" data-target="ProtectionItem3" data-name="ProtectionItem2")
         img(src="~@img/usb.png")
         figcaption USB 管控軟體資產管理軟體 WinMatrix
 
@@ -31,7 +31,7 @@
     content="这是一段内容,这是一段内容,这是一段内容,这是一段内容。"
   )
     template(#reference)
-      figure(@click="dialogVisible = true" data-target="" data-name="ProtectionItem3")
+      figure(@click="dialogVisible = true" data-target="ProtectionItem4" data-name="ProtectionItem3")
         img(src="~@img/crowdstrike.png")
         figcaption 端點進階持續性攻擊防護軟體 Crowdstrike Falcon
 
@@ -44,7 +44,7 @@
     content="这是一段内容,这是一段内容,这是一段内容,这是一段内容。"
   )
     template(#reference)
-      figure(@click="dialogVisible = true" data-target="" data-name="ProtectionItem4")
+      figure(@click="dialogVisible = true" data-target="ProtectionItem5" data-name="ProtectionItem4")
         img(src="~@img/IP.png")
         figcaption IP/MAC管理系統 Dr.IP
 

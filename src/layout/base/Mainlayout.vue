@@ -11,7 +11,6 @@
       OaNetwork
       Protection
 </template>
-
 <script>
 import { onMounted, ref } from 'vue'
 import Provider from '@v/pages/provider'
@@ -21,7 +20,7 @@ import VPN from '@v/pages/VPN'
 import Checker from '@v/pages/checker'
 import OaNetwork from '@v/pages/OaNetwork'
 import Protection from '@v/pages/protection'
-import { TimelineMax, Linear, Sine, TweenLite } from 'gsap/all'
+import { TimelineMax, Linear, Sine, TweenLite } from 'gsap'
 
 export default {
   name: 'HelloWorld',
@@ -82,6 +81,7 @@ export default {
           y: top + height / 2,
           name: item.dataset.name,
           target: item.dataset.target,
+          rate: item.dataset.rate ?? 50,
         })
       })
       createCanvas(temps)
@@ -93,29 +93,33 @@ export default {
       canvas.value.width = content.value.offsetWidth
       canvas.value.height = content.value.offsetHeight
       const ctx = canvas.value.getContext('2d')
-      temps.forEach((item) => {
+      for (const item of temps) {
         const target = temps.find((val) => val.name === item.target)
         if (target) {
           ctx.beginPath()
           ctx.moveTo(item.x, item.y)
           ctx.lineTo(target.x, target.y)
           ctx.strokeStyle = '#fff'
+          ctx.background = '#fff'
           ctx.stroke()
-          for (let i = 0; i < 200; i++) {
-            particles.push(new Particle(item.x, item.y, target.x, target.y))
+          for (let i = 0; i < item.rate * 2; i++) {
+            particles.push(
+              new Particle([
+                { x: item.x, y: item.y },
+                { x: target.x, y: target.y },
+              ])
+            )
           }
         }
-      })
-      console.log(TweenLite)
-      TweenLite.ticker.addEventListener('tick', render)
+      }
       function render() {
         ctx.clearRect(0, 0, canvas.value.width, canvas.value.height)
-        ctx.strokeRect(100.5, 100.5, 300, 300)
 
         for (let particle of particles) {
           particle.draw(ctx)
         }
       }
+      TweenLite.ticker.addEventListener('tick', render)
     }
 
     function random(min, max) {
@@ -145,29 +149,33 @@ export default {
     }
 
     class Particle {
-      constructor(startX, startY, endX, endY) {
-        this.x = startX
-        this.y = startY
+      constructor(positions) {
+        this.x = positions[0].x
+        this.y = positions[0].y
 
-        this.width = randomInt(10, 20)
+        this.width = randomInt(2, 3)
         this.height = this.width
         this.halfWidth = this.width / 2
         this.halfHeight = this.height / 2
 
-        this.offset = randomInt(10, 20)
+        this.offset = randomInt(1, 3)
         this.scale = 1
         this.rotation = 0
         this.alpha = random(0.5, 1)
-        this.fillStyle =
-          '#' + (Math.random().toString(16) + '000000').slice(2, 8)
+        this.fillStyle = 'rgb(255, 255, 255)'
 
         const duration1 = random(3, 5)
         const duration2 = random(1, 6)
         const minScale = random(0.3, 0.5)
 
         this.pathAnimation = new TimelineMax({ repeat: -1 })
-          .to(this, duration1, { x: endX, ease: Linear.easeNone })
-          .to(this, duration1, { y: endY, ease: Linear.easeNone })
+        for (let i = 0; i < positions.length - 1; i++) {
+          this.pathAnimation.to(this, duration1, {
+            x: positions[i + 1].x,
+            y: positions[i + 1].y,
+            ease: Linear.easeNone,
+          })
+        }
 
         this.rotationAnimation = new TimelineMax({ repeat: -1 }).to(
           this,
@@ -245,7 +253,7 @@ export default {
         position: absolute
         top: 0
         left: 0
-        z-index: 2
+        z-index: 0
         pointer-events: none
       .box
         height: 100%

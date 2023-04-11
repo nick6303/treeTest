@@ -12,7 +12,7 @@
       li 全方位郵件過濾系統中華數位 SPAM
       li 郵件沙箱檢測系統 McAfee ATD
     template(#reference)
-      figure.email.off(@click="dialogVisible = true" data-target="OaNetwork2" data-name="checker1")
+      figure.email.off(@click="dialogVisible = true" data-target="checker2" data-name="checker1")
         figcaption 全方位郵件過濾系統
         img(src="~@img/email.png")
   el-popover(
@@ -23,7 +23,7 @@
     content="这是一段内容,这是一段内容,这是一段内容,这是一段内容。"
   )
     template(#reference)
-      figure.trendDDI(@click="dialogVisible = true" data-target="OaNetwork2" data-name="checker1")
+      figure.trendDDI(@click="dialogVisible = true" data-target="OaNetwork3" data-name="checker2")
         img(src="~@img/trendDDI.png")
         figcaption 網路惡意行為偵測系統 TrendMicro DDI
   el-dialog(

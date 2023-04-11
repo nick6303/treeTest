@@ -8,7 +8,7 @@
     content="这是一段内容,这是一段内容,这是一段内容,这是一段内容。"
   )
     template(#reference)
-      figure(data-target="wcg1" data-name="provider1")
+      figure(data-target="wcg2" data-name="provider1" :data-rate="100")
         img(src="~@img/CWM.png")
         figcaption 100M/100M
   el-popover(
@@ -19,7 +19,7 @@
     content="这是一段内容,这是一段内容,这是一段内容,这是一段内容。"
   )
     template(#reference)
-      figure(data-target="wcg1" data-name="provider2")
+      figure(data-target="wcg2" data-name="provider2" :data-rate="85")
         img(src="~@img/GT.png")
         figcaption 100M/100M
   el-popover(
@@ -30,7 +30,7 @@
     content="这是一段内容,这是一段内容,这是一段内容,这是一段内容。"
   )
     template(#reference)
-      figure(data-target="wcg1" data-name="provider3")
+      figure(data-target="wcg2" data-name="provider3" :data-rate="50")
         img(src="~@img/CWM.png")
         figcaption 1G/600M
   el-popover(
@@ -41,7 +41,7 @@
     content="这是一段内容,这是一段内容,这是一段内容,这是一段内容。"
   )
     template(#reference)
-      figure(data-target="wcg1" data-name="provider4")
+      figure(data-target="wcg2" data-name="provider4" :data-rate="10")
         img(src="~@img/CWM.png")
         figcaption 300M/100M
   el-popover(
@@ -52,7 +52,7 @@
     content="这是一段内容,这是一段内容,这是一段内容,这是一段内容。"
   )
     template(#reference)
-      figure(data-target="wcg1" data-name="provider5")
+      figure(data-target="wcg2" data-name="provider5" :data-rate="90")
         img(src="~@img/CWM.png")
         figcaption 100M/10M
   el-popover(
@@ -63,7 +63,7 @@
     content="这是一段内容,这是一段内容,这是一段内容,这是一段内容。"
   )
     template(#reference)
-      figure(@click="dialogVisible = true" data-target="wcg1" data-name="provider6")
+      figure(@click="dialogVisible = true" data-target="wcg2" data-name="provider6" :data-rate="1")
         img(src="~@img/TWM.png")
         figcaption 300M/100M
   el-popover(
@@ -74,7 +74,7 @@
     content="这是一段内容,这是一段内容,这是一段内容,这是一段内容。"
   )
     template(#reference)
-      figure.off(@click="dialogVisible = true" data-target="wcg1" data-name="provider7")
+      figure.off(@click="dialogVisible = true" data-target="wcg2" data-name="provider7" :data-rate="70")
         img(src="~@img/logo1.png")
         figcaption 300M/100M
   el-popover(
@@ -85,7 +85,7 @@
     content="这是一段内容,这是一段内容,这是一段内容,这是一段内容。"
   )
     template(#reference)
-      figure(@click="dialogVisible = true" data-target="wcg1" data-name="provider8")
+      figure(@click="dialogVisible = true" data-target="wcg2" data-name="provider8" :data-rate="100")
         img(src="~@img/logo2.png")
         figcaption 4M/4M
   el-dialog(

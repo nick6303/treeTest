@@ -9,7 +9,7 @@
       content="这是一段内容,这是一段内容,这是一段内容,这是一段内容。"
     )
       template(#reference)
-        figure.IPS(@click="dialogVisible = true"  data-target="checker1" data-name="vpn1")
+        figure.IPS(@click="dialogVisible = true"  data-target="vpn2" data-name="vpn1")
           figcaption 入侵防護系統 McAfee IPS
           img(src="~@img/IPS.png")
     el-popover(
@@ -31,7 +31,7 @@
     content="这是一段内容,这是一段内容,这是一段内容,这是一段内容。"
   )
     template(#reference)
-      figure.vpn(@click="dialogVisible = true" data-target="checker1" data-name="vpn3")
+      figure.vpn(@click="dialogVisible = true" data-target="vpn1" data-name="vpn3")
         figcaption 虛擬私有網路
         img(src="~@img/vpn.png")
         img(src="~@img/2fa.png")
@@ -66,6 +66,10 @@ figure
 
 figure.IPS,figure.wall
   width: 50%
+figure.IPS img
+  filter: invert(80%)
 figure.vpn
   width: 100%
+  img
+    filter: invert(80%)
 </style>
