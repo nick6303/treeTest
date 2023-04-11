@@ -63,7 +63,7 @@
     content="这是一段内容,这是一段内容,这是一段内容,这是一段内容。"
   )
     template(#reference)
-      figure(@click="dialogVisible = true" data-target="wcg2" data-name="provider6" :data-rate="1")
+      figure(@click="dialogVisible = true" data-target="wcg2" data-name="provider6" :data-rate="1000")
         img(src="~@img/TWM.png")
         figcaption 300M/100M
   el-popover(
